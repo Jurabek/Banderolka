@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+           .test{
+               background: blue url('../../Content/05.svg') center / cover no-repeat;
+           }
+           .demo-layout-transparent {
+               /*background: blue url('../../Content/05.svg') center / cover no-repeat;*/
+               background-color:blue;
+           }
+
+               .demo-layout-transparent .mdl-layout__header,
+               .demo-layout-transparent .mdl-layout__drawer-button {
+                   /* This background is dark, so we set text to white. Use 87% black instead if
+        your background is light. */
+                   color: white;
+               }
+    </style>
+
+</head>
+<body>
+
+    <div class="mdl-layout mdl-layout--fixed-header mdl-js-layout">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row mdl-color--blue">
+                <span class="mdl-layout-title">
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </span>
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
+                    @Html.ActionLink("Home", "Index", "Home", new { @class = "mdl-navigation__link" })
+                    @Html.ActionLink("About", "About", "Home", new { @class = "mdl-navigation__link" })
+                    @Html.ActionLink("Contact", "Contact", "Home", new { @class = "mdl-navigation__link" })
+                </nav>
+                @*@Html.Partial("_LoginPartial")*@
+            </div>
+        </header>
+
+        <main class="mdl-layout__content">
+            <div id="index-banner" class="parallax-container test" style="min-height:600px">
+                <div class="section no-pad-bot">
+                    <div class="container">
+                        <br><br>
+                        <h1 class="header center teal-text text-lighten-2">Parallax Template</h1>
+                        <div class="row center">
+                            <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+                        </div>
+                        <div class="row center">
+                            <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+                        </div>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </main>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/material")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
